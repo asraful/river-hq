@@ -1,4 +1,6 @@
-package com.river.core.hr.entity;
+package com.river.core.hr.entity.workday;
+
+import com.river.core.hr.entity.BaseEntity;
 
 import javax.persistence.Entity;
 import java.util.Date;

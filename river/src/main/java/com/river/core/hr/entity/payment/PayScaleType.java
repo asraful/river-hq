@@ -1,5 +1,5 @@
 package com.river.core.hr.entity.payment;
 
-public enum PayScale {
+public enum PayScaleType {
     A, B, C
 }

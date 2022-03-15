@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "payment_scale")
 public class PaymentScale extends BaseEntity {
-    private PayScale scale;
+    private PayScaleType scale;
     private String description;
     private double houseRent;
     private double transportationCost;
