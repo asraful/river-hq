@@ -1,6 +1,6 @@
 package com.river.core.hr.data;
 
-import com.river.core.hr.entity.Employee;
+import com.river.core.hr.entity.person.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

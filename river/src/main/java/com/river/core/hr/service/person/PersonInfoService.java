@@ -1,4 +1,4 @@
-package com.river.core.hr.service;
+package com.river.core.hr.service.person;
 
 import org.springframework.stereotype.Service;
 
