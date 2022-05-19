@@ -4,6 +4,7 @@ import './Login.css';
 import { Link } from 'react-router-dom';
 import { ACCESS_TOKEN } from '../../constants';
 
+
 import { Form, Input, Button, Icon, notification } from 'antd';
 const FormItem = Form.Item;
 
@@ -11,12 +12,15 @@ class Login extends Component {
     render() {
         const AntWrappedLoginForm = Form.create()(LoginForm)
         return (
+        
             <div className="login-container">
                 <h1 className="page-title">Login</h1>
                 <div className="login-content">
                     <AntWrappedLoginForm onLogin={this.props.onLogin} />
                 </div>
             </div>
+
+            
         );
     }
 }
@@ -39,12 +43,12 @@ class LoginForm extends Component {
                 }).catch(error => {
                     if(error.status === 401) {
                         notification.error({
-                            message: 'Polling App',
+                            message: 'River-HQ',
                             description: 'Your Username or Password is incorrect. Please try again!'
                         });                    
                     } else {
                         notification.error({
-                            message: 'Polling App',
+                            message: 'River-HQ',
                             description: error.message || 'Sorry! Something went wrong. Please try again!'
                         });                                            
                     }
@@ -80,9 +84,13 @@ class LoginForm extends Component {
                         placeholder="Password"  />                        
                 )}
                 </FormItem>
-                <FormItem>
-                    <Button type="primary" htmlType="submit" size="large" className="login-form-button">Login</Button>
-                    Or <Link to="/signup">register now!</Link>
+                <FormItem >
+                    <div className='button-container'>
+                         <div className='vertical-center' >
+                            <Button type="primary" htmlType="submit" size="large" className="login-form-button">Login</Button>
+                         </div>
+                    </div>
+                   
                 </FormItem>
             </Form>
         );

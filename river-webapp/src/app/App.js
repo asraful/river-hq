@@ -7,7 +7,7 @@ import {
 
 import { getCurrentUser } from '../util/APIUtils';
 import { ACCESS_TOKEN } from '../constants';
-
+import axios from "axios";
 import { Redirect } from 'react-router';
 //import PollList from '../poll/PollList';
 //import NewPoll from '../poll/NewPoll';
@@ -60,6 +60,38 @@ class App extends Component {
     this.loadCurrentUser();
   }
 
+/* checked user logged in or not */
+checkLoginStatus() {
+    axios
+    .get("http://localhost:3000/logged_in", { withCredentials: true })
+    .then(response => {
+      if (
+        response.data.logged_in &&
+        this.state.loggedInStatus === "NOT_LOGGED_IN"
+      ) {
+        this.setState({
+          loggedInStatus: "LOGGED_IN",
+          user: response.data.user
+        });
+      } else if (
+        !response.data.logged_in &
+        (this.state.loggedInStatus === "LOGGED_IN")
+      ) {
+        this.setState({
+          loggedInStatus: "NOT_LOGGED_IN",
+          user: {}
+        });
+      }
+    })
+    .catch(error => {
+      console.log("check login error", error);
+    });
+  }
+
+
+
+
+
   handleLogout(redirectTo="/", notificationType="success", description="You're successfully logged out.") {
     localStorage.removeItem(ACCESS_TOKEN);
 
@@ -71,21 +103,21 @@ class App extends Component {
     this.props.history.push(redirectTo);
     
     notification[notificationType]({
-      message: 'Polling App',
+      message: 'River-hq',
       description: description,
     });
   }
 
   handleLogin() {
     notification.success({
-      message: 'Polling App',
+      message: 'River-hq',
       description: "You're successfully logged in.",
     });
     this.loadCurrentUser();
     this.props.history.push("/");
   }
 
-
+ 
  
   render() {
     if(this.state.isLoading) {
