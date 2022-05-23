@@ -13,14 +13,12 @@ class Login extends Component {
         const AntWrappedLoginForm = Form.create()(LoginForm)
         return (
         
-            <div className="login-container">
-                <h1 className="page-title">Login</h1>
-                <div className="login-content">
+            <div className='wrapper fadeInDown'>
+                <h2 className="active">Login</h2>
+                <div>
                     <AntWrappedLoginForm onLogin={this.props.onLogin} />
                 </div>
             </div>
-
-            
         );
     }
 }
@@ -59,41 +57,41 @@ class LoginForm extends Component {
 
     render() {
         const { getFieldDecorator } = this.props.form;
-        return (
-            <Form onSubmit={this.handleSubmit} className="login-form">
-                <FormItem>
-                    {getFieldDecorator('usernameOrEmail', {
-                        rules: [{ required: true, message: 'Please input your username or email!' }],
+
+             return ( 
+                <Form onSubmit={this.handleSubmit} >
+                    <FormItem>
+                        {getFieldDecorator('usernameOrEmail', {
+                            rules: [{ required: true, message: 'Please input your username or email!' }],
+                        })(
+                        <Input 
+                            prefix={<Icon type="user" />}
+                            size="large"
+                            name="usernameOrEmail" 
+                            placeholder="Username or Email" />    
+                        )}
+                    </FormItem>
+                    <FormItem>
+                    {getFieldDecorator('password', {
+                        rules: [{ required: true, message: 'Please input your Password!' }],
                     })(
-                    <Input 
-                        prefix={<Icon type="user" />}
-                        size="large"
-                        name="usernameOrEmail" 
-                        placeholder="Username or Email" />    
+                        <Input 
+                            prefix={<Icon type="lock" />}
+                            size="large"
+                            name="password" 
+                            type="password" 
+                            placeholder="Password"  />                        
                     )}
-                </FormItem>
-                <FormItem>
-                {getFieldDecorator('password', {
-                    rules: [{ required: true, message: 'Please input your Password!' }],
-                })(
-                    <Input 
-                        prefix={<Icon type="lock" />}
-                        size="large"
-                        name="password" 
-                        type="password" 
-                        placeholder="Password"  />                        
-                )}
-                </FormItem>
-                <FormItem >
-                    <div className='button-container'>
+                    </FormItem>
+                    <FormItem >
+                       <div className='button-container'>
                          <div className='vertical-center' >
                             <Button type="primary" htmlType="submit" size="large" className="login-form-button">Login</Button>
                          </div>
-                    </div>
-                   
-                </FormItem>
-            </Form>
-        );
+                     </div>
+                    </FormItem>
+                </Form>
+            );
     }
 }
 
