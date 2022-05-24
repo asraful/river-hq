@@ -1,12 +1,12 @@
 
 html {
-  background-color: #5a5253;
+  background-color: rgb(68, 66, 66);
 }
 
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  background-color: #5a5253;
+  background-color: rgb(68, 66, 66);
 }
 
 a {

@@ -4,6 +4,14 @@ import './Login.css';
 import { Link } from 'react-router-dom';
 import { ACCESS_TOKEN } from '../../constants';
 
+import Signup from '../signup/Signup';
+
+import {
+    Route,
+    withRouter,
+    Switch
+  } from 'react-router-dom';
+  
 
 import { Form, Input, Button, Icon, notification } from 'antd';
 const FormItem = Form.Item;
@@ -87,8 +95,10 @@ class LoginForm extends Component {
                        <div className='button-container'>
                          <div className='vertical-center' >
                             <Button type="primary" htmlType="submit" size="large" className="login-form-button">Login</Button>
+                            <Link to="/signup">register now!</Link>
                          </div>
                      </div>
+                     <Route path="/signup" component={Signup}></Route>
                     </FormItem>
                 </Form>
             );
