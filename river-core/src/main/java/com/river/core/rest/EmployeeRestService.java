@@ -39,7 +39,6 @@ public class EmployeeRestService {
     }
 
     @GetMapping("/{id}")
-    @Produces({MediaType.APPLICATION_JSON})
     public Response postEmployee(@PathVariable("id") Long id) {
         Optional<Employee> employee =employeeRepository.findById(id);
         return Response.status(OK)
