@@ -9,7 +9,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "payments")
 @NoArgsConstructor
-
 public class Payment extends BaseEntity {
-    private String description;
+
 }
